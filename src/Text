@@ -1,28 +1,13 @@
-shall i compare thee to a summer’s day?
-thou art more lovely and more temperate:
-rough winds do shake the darling buds of may,
-and summer’s lease hath all too short a date;
-sometime too hot the eye of heaven shines,
-and often is his gold complexion dimm'd;
-and every fair from fair sometime declines,
-by chance or nature’s changing course untrimm'd;
-but thy eternal summer shall not fade,
-nor lose possession of that fair thou ow’st;
-nor shall death brag thou wander’st in his shade,
-when in eternal lines to time thou grow’st:
-so long as men can breathe or eyes can see,
-so long lives this, and this gives life to thee.
-
 Follow these steps in order:
- 1. Include and keep track of every letter that precedes a non-whitespace punctuation mark (.?;',")
- 2. Delete every space and the characters immediately next to each space
- 3. Delete every other “h”, ignoring the first and deleting the second and so on.
- 4. Delete any vowels that are touching other vowels. If a vowel is only touching another vowel that you were told to keep in step 1, neither gets deleted. Y counts as a vowel.
- 5. For each line, delete all instances of the first letter in that line (if you were told to include a letter in step 1, do not delete that instance of the letter).
- 6. Delete all punctuation marks.
- 7. If a line has fewer than 18 characters, delete it. Do not delete letters included in step 1.  If a line has 18 or more characters, delete the first 15 characters that were not included in step 1.
- 8. Combine all lines, delete any pairs of letters, including letters that were included in step 1. From here on, letters included in step 1 have the same relevance as any other letter.
- 9. Delete every other vowel, deleting the first and ignoring the second and so on. Y counts as a vowel.
+1. Include and keep track of every letter that precedes a non-whitespace punctuation mark (.?;',")
+2. Delete every space and the characters immediately next to each space
+3. Delete every other “h”, ignoring the first and deleting the second and so on.
+4. Delete any vowels that are touching other vowels. If a vowel is only touching another vowel that you were told to keep in step 1, neither gets deleted. Y counts as a vowel.
+5. For each line, delete all instances of the first letter in that line (if you were told to include a letter in step 1, do not delete that instance of the letter).
+6. Delete all punctuation marks.
+7. If a line has fewer than 18 characters, delete it. Do not delete letters included in step 1.  If a line has 18 or more characters, delete the first 15 characters that were not included in step 1.
+8. Combine all lines, delete any pairs of letters, including letters that were included in step 1. From here on, letters included in step 1 have the same relevance as any other letter.
+9. Delete every other vowel, deleting the first and ignoring the second and so on. Y counts as a vowel.
 10. Delete any instances of the letter pair “re”.
 11. Delete any instances of the letter pair “wt”.
 12. Delete all instances of the letter “s” besides the first.
