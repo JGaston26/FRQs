@@ -1,6 +1,6 @@
 public class Problem7 {
     public static void main(String[] args) {
-        String message = "lower";
+        String message = "chrwscl";
         for (int i = 0; i < 26; i++) {
             System.out.println(shift(message, i));
         }

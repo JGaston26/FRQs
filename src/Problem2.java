@@ -9,15 +9,17 @@ public class Problem2 {
         File file = new File("src//Problem2.txt");
         Scanner scan = new Scanner(file);
         String str = "";
+        int x = 1;
         while (scan.hasNext()) {
             String data = scan.nextLine();
-            step2(data);
-            if (!step2(data).isEmpty())
-                str += step2(data);
+            System.out.println("\n\n\n" + x);
+            x++;
+            String item = step8(data);
+            if (!item.isEmpty())
+                str += item;
         }
-        str = step2(str);
-        System.out.println(str);
-        System.out.println(step8(str));
+        System.out.println("TOTAL STRING: \n\n" + str + "\n\n");
+        step8(str);
     }
     public static String step1(String data) {
         String str = "";
@@ -33,15 +35,19 @@ public class Problem2 {
     }
     public static String step2(String data) {
         String str = "";
-        for (int i = 0; i < data.length(); i++) {
+        for (int i = 0; i < data.length()-1; i++) {
             if (Character.isSpace(data.charAt(i))) {
                 i++;
+            }
+            if (Character.isSpace(data.charAt(i+1))) {
+                i+=2;
             } else {
                 str += (data.substring(i, i + 1));
             }
         }
-        System.out.println(str);
-        return step3(str);
+        System.out.println(data);
+        System.out.println(str + "       step 2");
+        return step4(str);
     }
     public static String step3(String data) {
         String str = "";
@@ -57,39 +63,39 @@ public class Problem2 {
             }
             str += (data.substring(i, i+1));
         }
-        System.out.println(str);
+        System.out.println(str + "     step 3");
         return step4(str);
     }
     public static String step4(String data) {
         String str = "";
         for (int i = 0; i < data.length() - 1; i++) {
-            if (isVowel(data.substring(i,i+1)) && isVowel(data.substring(i+1,i+2))) {
+            if (isVowel(String.valueOf(data.charAt(i))) && isVowel(String.valueOf(data.charAt(i+1)))) {
 
             } else {
                 str += data.substring(i,i+1);
             }
         }
-        System.out.println(str);
+        System.out.println(str + "     step 4");
         return step5(str);
     }
     public static boolean isVowel(String str) {
         return (str.equals("a") || str.equals("e") || str.equals("i") || str.equals("o") || str.equals("u") || str.equals("y"));
     }
     public static String step5(String data) {
-        String rem = data.substring(0,1);
-        String str = rem;
-        for (int i = 1; i < data.length(); i++) {
-            if (data.substring(i,i+1).equals("-")) {
-                str += data.substring(i,i+1);
+        Character rem = data.charAt(0);
+        String str = String.valueOf(rem);
+        for (int i = 1; i < data.length() - 1; i++) {
+            if (data.charAt(i) == '-') {
+                str += data.charAt(i);
                 i++;
-                str += data.substring(i,i+1);
-            } else if (data.substring(i,i+1).equals(rem)) {
-                i++;
+                str += data.charAt(i);
+            } else if (data.charAt(i) == rem) {
+
             } else {
-                str += data.substring(i,i+1);
+                str += data.charAt(i);
             }
         }
-        System.out.println(str);
+        System.out.println(str + "     step 5");
         return step6(str);
     }
     public static String step6(String data) {
@@ -100,7 +106,7 @@ public class Problem2 {
             }
             str += data.substring(i,i+1);
         }
-        System.out.println(str);
+        System.out.println(str + "     step 6");
         return step7(str);
     }
     public static String step7(String data) {
@@ -115,26 +121,39 @@ public class Problem2 {
             int skipper = 15;
             for (int i = 0; i < data.length(); i++) {
                 if (data.substring(i,i+1).equals("-")) {
-                    str += data.substring(i + 1, i + 2);
+                    str += data.substring(i+1,i+2);
+                    i++;
+                    continue;
                 } if (skipper != 0) {
                     skipper--;
                     continue;
                 } str += data.substring(i,i+1);
             }
         }
-        System.out.println(str);
+        System.out.println(str + "     step 7");
         return (str);
     }
     public static String step8(String data) {
-        String str = "";
+        String dataClone = "";
         for (int i = 0; i < data.length() - 1; i++) {
-            if (data.charAt(i) == data.charAt(i+1)) {
-                i++;
+            if (data.charAt(i) == '-') {
+
             } else {
-                str += data.substring(i,i+1);
+                dataClone += data.substring(i,i+1);
             }
         }
-        System.out.println(str);
+        System.out.println(dataClone);
+        String str = "";
+        for (int i = 0; i < dataClone.length() - 1; i++) {
+            if (dataClone.charAt(i) == '-') {
+
+            } else if (dataClone.charAt(i) == dataClone.charAt(i+1)) {
+                i++;
+            } else {
+                str += dataClone.substring(i,i+1);
+            }
+        }
+        System.out.println(str + "     step 8");
         return step9(str);
     }
     public static String step9(String data) {
@@ -151,6 +170,7 @@ public class Problem2 {
             }
             str += (data.substring(i, i+1));
         }
+        System.out.println(str + "     step 9");
         return step10(str);
     }
     public static String step10(String data) {
@@ -161,17 +181,21 @@ public class Problem2 {
             } else {
                 str += data.substring(i,i+1);
             }
-        } return step11(str);
+        }
+        System.out.println(str + "     step 10");
+        return step11(str);
     }
     public static String step11(String data) {
         String str = "";
-        for (int i = 0; i < data.length() - 1; i++) {
+        for (int i = 0; i < data.length(); i++) {
             if (data.charAt(i) == 'w' && data.charAt(i + 1) == 't') {
                 i++;
             } else {
                 str += data.substring(i,i+1);
             }
-        } return step12(str);
+        }
+        System.out.println(str + "     step 11");
+        return step12(str);
     }
     public static String step12(String data) {
         int sCount = 1;
@@ -187,20 +211,44 @@ public class Problem2 {
             } else {
                 str += data.substring(i,i+1);
             }
-        } return step13(str);
+        }
+        System.out.println(str + "     step 12");
+        return step13(str);
+
     }
     public static String step13(String data) {
         String str = "";
+        String[] arr = new String[26];
+        int idx = 0;
         for (int i = 0; i < data.length(); i++) {
             String letter = data.substring(i,i+1);
-            if (data.substring(i+1).contains(letter)) {
-
+            if (data.substring(i+1).contains(letter) && !hasItem(arr, letter)) {
+                arr[idx] = letter;
+                idx++;
             } else {
-                str += data.substring(i,i+1);
+                str += letter;
             }
-        } return step14(str);
+        }
+        System.out.println(str + "     step 13");
+        return step14(str);
+    }
+    public static boolean hasItem(String[] arr, String str) {
+            for (String item : arr) {
+                if (item != null && item.equals(str))  {
+                    return true;
+                }
+            }
+        return false;
     }
     public static String step14(String str) {
-        return str.substring(0,1) + str.substring(3);
+        if (!str.isEmpty()) {
+            if (str.length() <= 3) {
+                str = str.substring(0, 1);
+            } else {
+                str = str.substring(0, 1) + str.substring(3);
+            }
+        }
+        System.out.println(str + "     step 14");
+        return str;
     }
 }

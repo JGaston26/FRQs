@@ -1,19 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("\nNode 1\n_______________");
-        System.out.println(nodeInfo(node1));
-        System.out.println("\nNode 2\n_______________");
-        System.out.println(nodeInfo(node2));
-        System.out.println("\nNode 3\n_______________");
-        System.out.println(nodeInfo(node3));
-        System.out.println("\nNode 4\n_______________");
-        System.out.println(nodeInfo(node4));
-        System.out.println("\nNode 5\n_______________");
-        System.out.println(nodeInfo(node5));
-        System.out.println("\nNode 6\n_______________");
-        System.out.println(nodeInfo(node6));
-        System.out.println("\nNode 7\n_______________");
-        System.out.println(nodeInfo(node7));
+        System.out.println(nodeInfo());;
     }
     static Nodes node1 = new Nodes(3486,3513,-154);
     static Nodes node2 = new Nodes(2895,-2142,-443);
@@ -22,8 +9,9 @@ public class Main {
     static Nodes node5 = new Nodes(3236,3701,-1992);
     static Nodes node6 = new Nodes(4574,-2881,4970);
     static Nodes node7 = new Nodes(-1170,1606,-4100);
-    public static String nodeInfo(Nodes node) {
+    public static String nodeInfo() {
         String str = "";
+        Nodes node = new Nodes(0,0,0);
         str += "\nNode1: " + nodeDistance(node, node1);
         str += "\nNode2: " + nodeDistance(node, node2);
         str += "\nNode3: " + nodeDistance(node, node3);
